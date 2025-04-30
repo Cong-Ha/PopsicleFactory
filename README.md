@@ -15,10 +15,10 @@ Popsicle Co., a very successful Popsicle factory, would like to come out of the 
 - Popsicles should exist for Update, Delete and Read operations
 
 ## Promises Made
-For this task, you will implement the create, read, and update operations.
 - Create Popsicles
-- Read Popsicles
 - Update Popsicles
+- Delete Popsicles
+- Read Popsicles
 
 ## Scenarios
 
@@ -66,6 +66,30 @@ For this task, you will implement the create, read, and update operations.
 
 **And** a view model of the Popsicle will be returned.
 
+### Scenario: Update Popsicle (optional for challenge)
+**Given** the Popsicle request is valid
+
+**And** a Popsicle exists
+
+**When** the update request is received from the web service
+
+**Then** an appropriate status code will be returned
+
+**And** the Popsicle will be persisted with only the properties that were changed
+
+**And** a view model of the Popsicle will be returned.
+
+### Scenario: Remove Popsicle (optional for challenge)
+**Given** the Popsicle request is valid
+
+**And** a Popsicle exists
+
+**When** the remove request is received from the web service
+
+**Then** an appropriate status code will be returned
+
+**And** the Popsicle will be removed from storage.
+
 ### Scenario: Get Popsicle
 **Given** the Popsicle request is valid
 
@@ -89,10 +113,9 @@ For this task, you will implement the create, read, and update operations.
 **And** the payload should contain the list of Popsicles that matched the search criteria.
 
 ## Requirements
-- Create popsicle code should be unit tested (Read and update operations do not need to be unit tested)
+- Code should be unit tested
 - Project should be able to run locally
 - Examples should be included for calling the Webservice. (IE: Swagger, Postman, Curl)
-- Exercise should take no longer than 6 hours
 
 ## Design Considerations
 - Feel free to mock the backend
