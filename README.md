@@ -2,10 +2,10 @@
 
 ## Prerequisites
 
-- .NET 6
+- .NET 8
 
 ## Background
-Popsicle Co., a very successful Popsicle factory, would like to come out of the stone age by bringing their store to the  Web. In order to support multiple clients they need a RESTFUL web service to manage their Popsicle inventory.
+Popsicle Co., a very successful Popsicle factory, would like to come out of the stone age by bringing their store to the  Web. In order to support multiple clients they need a RESTFUL web service to manage their Popsicle inventory.  
 
 ## Narrative
 **As** Popsicle Co., **I want** a webservice that will manage the CRUD operations of our Popsicles, **so that** our inventory of Popsicles can be managed from the Web.
@@ -15,10 +15,10 @@ Popsicle Co., a very successful Popsicle factory, would like to come out of the 
 - Popsicles should exist for Update, Delete and Read operations
 
 ## Promises Made
+For this task, you will implement the create, read, and update operations.
 - Create Popsicles
-- Update Popsicles
-- Delete Popsicles
 - Read Popsicles
+- Update Popsicles
 
 ## Scenarios
 
@@ -66,30 +66,6 @@ Popsicle Co., a very successful Popsicle factory, would like to come out of the 
 
 **And** a view model of the Popsicle will be returned.
 
-### Scenario: Update Popsicle
-**Given** the Popsicle request is valid
-
-**And** a Popsicle exists
-
-**When** the update request is received from the web service
-
-**Then** an appropriate status code will be returned
-
-**And** the Popsicle will be persisted with only the properties that were changed
-
-**And** a view model of the Popsicle will be returned.
-
-### Scenario: Remove Popsicle
-**Given** the Popsicle request is valid
-
-**And** a Popsicle exists
-
-**When** the remove request is received from the web service
-
-**Then** an appropriate status code will be returned
-
-**And** the Popsicle will be removed from storage.
-
 ### Scenario: Get Popsicle
 **Given** the Popsicle request is valid
 
@@ -113,10 +89,10 @@ Popsicle Co., a very successful Popsicle factory, would like to come out of the 
 **And** the payload should contain the list of Popsicles that matched the search criteria.
 
 ## Requirements
-- Code should be unit tested
+- Create popsicle code should be unit tested (Read and update operations do not need to be unit tested)
 - Project should be able to run locally
 - Examples should be included for calling the Webservice. (IE: Swagger, Postman, Curl)
-- Exercise should take no longer than 8 hours
+- Exercise should take no longer than 6 hours
 
 ## Design Considerations
 - Feel free to mock the backend
