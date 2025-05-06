@@ -2,10 +2,10 @@
 
 ## Prerequisites
 
-- .NET 6
+- .NET 8
 
 ## Background
-Popsicle Co., a very successful Popsicle factory, would like to come out of the stone age by bringing their store to the  Web. In order to support multiple clients they need a RESTFUL web service to manage their Popsicle inventory.
+Popsicle Co., a very successful Popsicle factory, would like to come out of the stone age by bringing their store to the  Web. In order to support multiple clients they need a RESTFUL web service to manage their Popsicle inventory.  
 
 ## Narrative
 **As** Popsicle Co., **I want** a webservice that will manage the CRUD operations of our Popsicles, **so that** our inventory of Popsicles can be managed from the Web.
@@ -66,7 +66,7 @@ Popsicle Co., a very successful Popsicle factory, would like to come out of the 
 
 **And** a view model of the Popsicle will be returned.
 
-### Scenario: Update Popsicle
+### Scenario: Update Popsicle (optional for challenge)
 **Given** the Popsicle request is valid
 
 **And** a Popsicle exists
@@ -79,7 +79,7 @@ Popsicle Co., a very successful Popsicle factory, would like to come out of the 
 
 **And** a view model of the Popsicle will be returned.
 
-### Scenario: Remove Popsicle
+### Scenario: Remove Popsicle (optional for challenge)
 **Given** the Popsicle request is valid
 
 **And** a Popsicle exists
@@ -116,7 +116,6 @@ Popsicle Co., a very successful Popsicle factory, would like to come out of the 
 - Code should be unit tested
 - Project should be able to run locally
 - Examples should be included for calling the Webservice. (IE: Swagger, Postman, Curl)
-- Exercise should take no longer than 8 hours
 
 ## Design Considerations
 - Feel free to mock the backend
