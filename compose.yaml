@@ -1,0 +1,43 @@
+﻿name: Popsicle Factory
+services:
+  Popsicle-Factory-API:
+    image: api
+    build:
+      context: .
+      dockerfile: API/Dockerfile
+    container_name: PopsicleFactory-API
+    depends_on:
+      - Popsicle-Factory-MySQL
+    ports:
+      - "8081:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Port=3306;Database=popsicle_factory;User=popsicle_user;Password=popsicle;
+    networks:
+      - popsicle-network
+
+  Popsicle-Factory-MySQL:
+    image: mysql:8.0
+    container_name: db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=popsicle_factory
+      - MYSQL_USER=popsicle_user
+      - MYSQL_PASSWORD=popsicle
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./API/Scripts:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - popsicle-network
+
+volumes:
+  db-data:
+
+networks:
+  popsicle-network:
+    driver: bridge
+
