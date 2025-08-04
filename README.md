@@ -3,6 +3,8 @@
 ## Prerequisites
 
 - .NET 8
+- project supports docker-compose with docker.yml file that constructs a MySql database with initial schema and data scripts.
+- API uses swagger to view endpoints
 
 ## Background
 Popsicle Co., a very successful Popsicle factory, would like to come out of the stone age by bringing their store to the  Web. In order to support multiple clients they need a RESTFUL web service to manage their Popsicle inventory.  
