@@ -4,8 +4,8 @@ USE popsicle_factory;
 CREATE TABLE IF NOT EXISTS Popsicles (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(50) NOT NULL,
-    `Type` INT DEFAULT 0,
-    `Size` INT DEFAULT 1,
+    `Type` INT,
+    `Size` INT,
     Description VARCHAR(500),
     is_sugar_free BOOLEAN DEFAULT FALSE,
     is_organic BOOLEAN DEFAULT FALSE,

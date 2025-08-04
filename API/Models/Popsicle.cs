@@ -5,20 +5,21 @@ namespace API.Models
 {
     public enum PopsicleType
     {
-        Fruit = 0,
-        Cream = 1,
-        Juice = 2,
-        Yogurt = 3,
-        Sherbet = 4,
-        IceCream = 5
+        None = 0,
+        Fruit = 1,
+        Cream = 2,
+        Juice = 3,
+        Yogurt = 4,
+        Sherbet = 5
     }
 
     public enum PopsicleSize
     {
-        Mini = 0,
-        Regular = 1,
-        Large = 2,
-        Jumbo = 3
+        None = 0,
+        Mini = 1,
+        Regular = 2,
+        Large = 3,
+        Jumbo = 4
     }
     
     [Table("Popsicles")]
@@ -35,10 +36,10 @@ namespace API.Models
         public required string Name { get; set; }
         
         [Column("Type")]
-        public PopsicleType Type { get; set; } = PopsicleType.Fruit;
+        public PopsicleType Type { get; set; }
         
         [Column("Size")]
-        public PopsicleSize Size { get; set; } = PopsicleSize.Regular;
+        public PopsicleSize Size { get; set; }
 
         [MaxLength(500)]
         [Column("Description")]
