@@ -1,10 +1,12 @@
 using System.Text.Json.Serialization;
 using API.Data;
+using API.Models;
 using API.Repository;
 using API.Repository.Interfaces;
 using API.Services;
 using API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options => {
+    options.ExampleFilters();
+});
 
 //ADD Connection to EF and MySql
 builder.Services.AddDbContext<PopsicleFactoryContext>(options => 
@@ -29,6 +33,11 @@ builder.Services.AddControllers()
         opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 
+//register swagger examples
+builder.Services.AddSwaggerExamplesFromAssemblyOf<PopsicleCreateExample>();
+builder.Services.AddSwaggerExamplesFromAssemblyOf<PopsicleReplaceExample>();
+builder.Services.AddSwaggerExamplesFromAssemblyOf<PopsicleSearchExample>();
+builder.Services.AddSwaggerExamplesFromAssemblyOf<PopsicleUpdateExample>();
 
 //REGISTER REPOS
 builder.Services.AddScoped<IPopsicleRepository, PopsicleRepository>();

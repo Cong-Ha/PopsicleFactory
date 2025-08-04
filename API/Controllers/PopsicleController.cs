@@ -2,6 +2,7 @@ using System.Net.Mime;
 using API.Models;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace API.Controllers;
 
@@ -44,6 +45,7 @@ public class PopsicleController(IPopsicleService popsicleService) : ControllerBa
     }
 
     [HttpPost("create")]
+    [SwaggerRequestExample(typeof(PopsicleCreateModel), typeof(PopsicleCreateExample))]
     [ProducesResponseType(typeof(PopsicleViewModel), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -90,6 +92,7 @@ public class PopsicleController(IPopsicleService popsicleService) : ControllerBa
     }
 
     [HttpPut("replace{id}")]
+    [SwaggerRequestExample(typeof(PopsicleReplaceModel), typeof(PopsicleReplaceExample))]
     [ProducesResponseType(typeof(PopsicleViewModel), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -169,6 +172,7 @@ public class PopsicleController(IPopsicleService popsicleService) : ControllerBa
     }
 
     [HttpPatch("update/{id}")]
+    [SwaggerRequestExample(typeof(PopsicleUpdateModel), typeof(PopsicleUpdateExample))]
     [ProducesResponseType(typeof(PopsicleViewModel), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -197,7 +201,7 @@ public class PopsicleController(IPopsicleService popsicleService) : ControllerBa
             {
                 Status = StatusCodes.Status404NotFound,
                 Title = "Popsicle not found",
-                Detail = $"No popsicle with this Id: {id} exists.",
+                Detail = e.Message,
                 Instance = HttpContext.Request.Path
             });
         }
@@ -214,6 +218,7 @@ public class PopsicleController(IPopsicleService popsicleService) : ControllerBa
     }
 
     [HttpGet("search")]
+    [SwaggerRequestExample(typeof(PopsicleSearchModel), typeof(PopsicleSearchExample))]
     [ProducesResponseType(typeof(List<PopsicleViewModel>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
