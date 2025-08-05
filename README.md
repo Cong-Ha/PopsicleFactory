@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - .NET 8
-- project supports docker-compose with docker.yml file that constructs a MySql database with initial schema and data scripts.
+- project supports docker-compose with compose.yml file that constructs a MySql database with initial schema and data scripts.
 - API uses swagger to view endpoints
 
 ## Background
